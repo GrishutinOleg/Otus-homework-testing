@@ -31,6 +31,9 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion,
   "org.apache.spark" %% "spark-core" % sparkVersion % Test classifier "tests",
 
+  "org.scalacheck" %% "scalacheck" % "1.14.3" ,
+  "org.scalatestplus" %% "scalacheck-1-14" % "3.2.2.0",
+
   "org.postgresql" % "postgresql" % postgresVersion,
   "org.postgresql" % "postgresql" % postgresVersion,
   "org.scalatest" %% "scalatest" % scalaTestVersion % Test

@@ -6,7 +6,7 @@ import org.apache.spark.sql.functions._
 
 object Task3 extends App {
 
-  val spark: SparkSession = SparkSession.builder()
+  implicit val spark: SparkSession = SparkSession.builder()
     .appName("Introduction to DataSet")
     .config("spark.master", "local")
     .getOrCreate()
@@ -36,8 +36,8 @@ object Task3 extends App {
         , round(sum(col("total_amount")), 2).as("total_amount")
         , round(avg(col("total_amount")), 2).as("avg_amount")
         , round(avg(col("trip_distance")), 2).as("avg_trip_distance")
-        , min(col("trip_distance")).as("min_trip_distance")
-        , max(col("trip_distance")).as("max_trip_distance")
+        , round(min(col("trip_distance")), 2).as("min_trip_distance")
+        , round(max(col("trip_distance")), 2).as("max_trip_distance")
       )
       .orderBy(col("Borough"))
   }
